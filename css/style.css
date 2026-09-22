@@ -1,334 +1,170 @@
 /* ========================================
-   Brooklyn Gilbert Portfolio - Custom Styles
+   PORTOWEB6 — Visual Foundation
+   Task 2: global design tokens + primitives
    ======================================== */
 
 :root {
-    --color-primary-purple: #8B5CF6;
-    --color-primary-pink: #D946EF;
-    --color-dark: #1A1E2E;
-    --color-light: #F8F9FC;
-    --color-white: #FFFFFF;
-    --transition: all 0.3s ease-in-out;
+    --color-ink: #171717;
+    --color-ink-soft: #3f3f46;
+    --color-muted: #71717a;
+    --color-paper: #f5f3ee;
+    --color-surface: #ffffff;
+    --color-line: #d6d3d1;
+    --color-accent: #9f1239;
+
+    --font-display: "DM Sans", sans-serif;
+    --font-body: "DM Sans", sans-serif;
+    --font-mono: "IBM Plex Mono", monospace;
+
+    --container: 1200px;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+    --section-space: clamp(5rem, 10vw, 9rem);
+    --radius-sm: 2px;
+    --radius-md: 8px;
+
+    --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+    --duration-fast: 180ms;
+    --duration-standard: 320ms;
 }
 
-/* ========================================
-   Navigation Styles
-   ======================================== */
-nav {
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+/* Global */
+html {
+    scroll-behavior: smooth;
+    background: var(--color-paper);
 }
 
-nav a, nav button {
-    transition: color 0.3s ease, transform 0.3s ease;
+body {
+    margin: 0;
+    color: var(--color-ink);
+    background: var(--color-paper);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-nav a:hover {
-    color: var(--color-primary-purple);
+img {
+    display: block;
+    max-width: 100%;
 }
 
-/* Mobile Menu Styles */
-[data-mobile-menu] {
-    transition: all 0.3s ease;
-    max-height: 400px;
-    overflow-y: auto;
+::selection {
+    color: var(--color-paper);
+    background: var(--color-accent);
 }
 
-[data-mobile-menu].hidden {
-    max-height: 0;
-    overflow: hidden;
+:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
 }
 
-/* ========================================
-   Animations
-   ======================================== */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Layout primitives */
+.site-container {
+    width: min(calc(100% - (var(--gutter) * 2)), var(--container));
+    margin-inline: auto;
 }
 
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.section {
+    padding-block: var(--section-space);
 }
 
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+.eyebrow,
+.meta,
+.label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+/* Links and controls */
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
 }
 
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+a {
+    color: inherit;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
 }
 
-@keyframes pulse {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.7;
-    }
+button {
+    font: inherit;
 }
 
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        max-height: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        max-height: 500px;
-        transform: translateY(0);
-    }
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.7rem 1.1rem;
+    border: 1px solid currentColor;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    transition:
+        background-color var(--duration-fast) ease,
+        color var(--duration-fast) ease,
+        border-color var(--duration-fast) ease,
+        transform var(--duration-standard) var(--ease-standard);
 }
 
-@keyframes shimmer {
-    0% {
-        background-position: -1000px 0;
-    }
-    100% {
-        background-position: 1000px 0;
-    }
-}
-
-/* ========================================
-   Section Animations
-   ======================================== */
-.hero-content {
-    animation: fadeInUp 0.8s ease 0.1s both;
-}
-
-.hero-image {
-    animation: slideInRight 0.8s ease 0.2s both;
-}
-
-.about-image {
-    animation: slideInLeft 0.8s ease 0.1s both;
-}
-
-.about-content {
-    animation: fadeInUp 0.8s ease 0.2s both;
-}
-
-.process-card {
-    animation: fadeInUp 0.6s ease both;
-}
-
-.process-card:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.process-card:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.process-card:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.process-card:nth-child(4) {
-    animation-delay: 0.4s;
-}
-
-.portfolio-item {
-    animation: scaleIn 0.6s ease both;
-}
-
-.portfolio-item:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.portfolio-item:nth-child(2) {
-    animation-delay: 0.15s;
-}
-
-.portfolio-item:nth-child(3) {
-    animation-delay: 0.2s;
-}
-
-.portfolio-item:nth-child(4) {
-    animation-delay: 0.25s;
-}
-
-.portfolio-item:nth-child(5) {
-    animation-delay: 0.3s;
-}
-
-.portfolio-item:nth-child(6) {
-    animation-delay: 0.35s;
-}
-
-.blog-card {
-    animation: fadeInUp 0.6s ease both;
-}
-
-.blog-card:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.blog-card:nth-child(2) {
-    animation-delay: 0.15s;
-}
-
-.blog-card:nth-child(3) {
-    animation-delay: 0.2s;
-}
-
-.blog-card:nth-child(4) {
-    animation-delay: 0.25s;
-}
-
-.service-card {
-    animation: fadeInUp 0.6s ease both;
-    transition: all 0.3s ease;
-}
-
-.service-card:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.service-card:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.service-card:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-}
-
-/* ========================================
-   Button Styles
-   ======================================== */
-button, a.btn {
-    transition: all 0.3s ease;
-}
-
-button:hover, a.btn:hover {
+.btn:hover {
     transform: translateY(-2px);
 }
 
-/* ========================================
-   Form Input Styles
-   ======================================== */
-input[type="text"],
-input[type="email"],
-textarea {
-    animation: fadeInUp 0.6s ease both;
-    transition: all 0.3s ease;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-    animation: none;
-}
-
-/* ========================================
-   Page Section Transition
-   ======================================== */
-.page-section {
-    transition: opacity 0.4s ease-in-out;
-}
-
-.hidden-section {
-    display: none;
-    opacity: 0;
-}
-
-/* ========================================
-   Reveal on Scroll
-   ======================================== */
-[data-reveal] {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-[data-reveal].visible {
-    opacity: 1;
+.btn:active {
     transform: translateY(0);
 }
 
-/* ========================================
-   Portfolio Filter Active State
-   ======================================== */
-.filter-active {
-    color: var(--color-white) !important;
-    border-color: var(--color-white) !important;
+/* Remove legacy template styling hooks */
+.text-gradient,
+.bg-gradient-primary,
+.blur-blob,
+.card-hover {
+    background-image: none !important;
+    filter: none !important;
+    box-shadow: none !important;
 }
 
-.filter-inactive {
-    opacity: 0.5;
+/* Respect reduced motion globally */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
-/* ========================================
-   Responsive Design
-   ======================================== */
+/* Small screens */
 @media (max-width: 768px) {
-    [data-mobile-menu] {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: var(--color-white);
-        border-bottom: 1px solid #e5e7eb;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 40;
+    .section {
+        padding-block: clamp(4rem, 14vw, 6rem);
     }
 
-    [data-mobile-menu].hidden {
-        display: none;
+    .btn {
+        min-height: 2.875rem;
     }
 }
 
-/* ========================================
-   Print Styles
-   ======================================== */
+/* Print */
 @media print {
-    nav, footer {
+    nav,
+    footer {
         display: none;
     }
 
     body {
-        background-color: var(--color-white);
+        background: #fff;
+        color: #000;
     }
 }
