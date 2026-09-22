@@ -1572,3 +1572,22 @@ textarea {
         transition: none;
     }
 }
+
+
+/* Accessibility & performance QA */
+:where(a, button, input, textarea, select):focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+::selection {
+    background: var(--color-accent);
+    color: var(--color-paper);
+}
+
+@media (prefers-contrast: more) {
+    :root {
+        --color-muted: #52525b;
+        --color-line: #a8a29e;
+    }
+}
