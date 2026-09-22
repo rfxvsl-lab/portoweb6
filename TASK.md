@@ -11,11 +11,13 @@ Tasks are completed in order. Do not jump ahead or mark future tasks complete be
   - Add/update project source-of-truth documentation.
   - Do not redesign page sections yet.
 
-- [ ] **Task 2 — Visual foundation**
+- [x] **Task 2 — Visual foundation**
   - Establish design tokens.
   - Replace template-era typography/color conventions.
   - Define global spacing, container and interaction primitives.
   - Remove obsolete decorative patterns without redesigning content sections.
+  - Added restrained editorial tokens, typography, spacing, focus and reduced-motion primitives.
+  - Removed legacy gradient/blob visual foundation from the document shell.
 
 - [ ] **Task 3 — Header & navigation**
   - Rebuild responsive navigation.
