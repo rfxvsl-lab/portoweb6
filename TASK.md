@@ -40,7 +40,7 @@ Tasks are completed in order. Do not jump ahead or mark future tasks complete be
   - Convert services into intentional editorial rows/listing.
   - Build process section with concise hierarchy.
 
-- [ ] **Task 7 — About / credibility**
+- [x] **Task 7 — About / credibility**
   - Replace fabricated personal information, metrics and client claims.
   - Use only provided/verified company facts.
 
