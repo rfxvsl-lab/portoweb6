@@ -19,10 +19,12 @@ Tasks are completed in order. Do not jump ahead or mark future tasks complete be
   - Added restrained editorial tokens, typography, spacing, focus and reduced-motion primitives.
   - Removed legacy gradient/blob visual foundation from the document shell.
 
-- [ ] **Task 3 — Header & navigation**
+- [x] **Task 3 — Header & navigation**
   - Rebuild responsive navigation.
   - Implement clear primary CTA.
   - Verify desktop/mobile behaviour and focus states.
+  - Rebuilt desktop and mobile navigation with an explicit Start a project CTA.
+  - Added keyboard Escape handling, ARIA state/labels, active-link state and responsive menu behaviour.
 
 - [ ] **Task 4 — Hero**
   - Replace personal-template hero with company positioning.
