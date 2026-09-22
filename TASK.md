@@ -26,7 +26,7 @@ Tasks are completed in order. Do not jump ahead or mark future tasks complete be
   - Rebuilt desktop and mobile navigation with an explicit Start a project CTA.
   - Added keyboard Escape handling, ARIA state/labels, active-link state and responsive menu behaviour.
 
-- [ ] **Task 4 — Hero**
+- [x] **Task 4 — Hero**
   - Replace personal-template hero with company positioning.
   - Implement primary CTA pair.
   - Establish the main visual composition.
