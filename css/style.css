@@ -629,3 +629,239 @@ button {
         gap: 1rem;
     }
 }
+
+
+/* Selected Work */
+.work {
+    border-top: 1px solid var(--color-line);
+}
+
+.work__heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(15rem, 0.65fr);
+    gap: 3rem;
+    align-items: end;
+    margin-bottom: clamp(3rem, 7vw, 6rem);
+}
+
+.work__title {
+    margin: 1rem 0 0;
+    font-size: clamp(3rem, 6.5vw, 6.4rem);
+    font-weight: 500;
+    letter-spacing: -0.065em;
+    line-height: 0.92;
+}
+
+.work__title em {
+    color: var(--color-accent);
+    font-style: normal;
+}
+
+.work__intro {
+    max-width: 28rem;
+    margin: 0 0 0 auto;
+    color: var(--color-ink-soft);
+    font-size: 0.98rem;
+    line-height: 1.7;
+}
+
+.work__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(16rem, 0.75fr);
+    gap: clamp(1.25rem, 3vw, 2.5rem);
+    align-items: start;
+}
+
+.work-card {
+    min-width: 0;
+}
+
+.work-card--featured {
+    grid-row: span 2;
+}
+
+.work-card--secondary + .work-card--secondary {
+    margin-top: clamp(2rem, 5vw, 4.5rem);
+}
+
+.work-card__media {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background: var(--color-line);
+    color: var(--color-paper);
+    text-decoration: none;
+}
+
+.work-card--featured .work-card__media {
+    aspect-ratio: 4 / 4.7;
+}
+
+.work-card--secondary .work-card__media {
+    aspect-ratio: 4 / 3;
+}
+
+.work-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.88);
+    transition:
+        transform 600ms var(--ease-standard),
+        filter 600ms var(--ease-standard);
+}
+
+.work-card__media::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background: linear-gradient(to bottom, rgba(23, 23, 23, 0.05), rgba(23, 23, 23, 0.62));
+    opacity: 0.55;
+    transition: opacity var(--duration-standard) ease;
+}
+
+.work-card__media:hover img {
+    transform: scale(1.025);
+    filter: saturate(1);
+}
+
+.work-card__media:hover::after {
+    opacity: 0.8;
+}
+
+.work-card__index,
+.work-card__view {
+    position: absolute;
+    z-index: 1;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.work-card__index {
+    top: 1rem;
+    left: 1rem;
+}
+
+.work-card__view {
+    right: 1rem;
+    bottom: 1rem;
+}
+
+.work-card__meta {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-top: 1rem;
+}
+
+.work-card__meta .label {
+    margin: 0 0 0.55rem;
+    color: var(--color-accent);
+}
+
+.work-card__meta h3 {
+    max-width: 32rem;
+    margin: 0;
+    font-size: clamp(1.1rem, 1.7vw, 1.55rem);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+}
+
+.work-card__tags {
+    flex: 0 0 auto;
+    margin: 0;
+    color: var(--color-muted);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    line-height: 1.5;
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.work__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: clamp(3.5rem, 7vw, 6rem);
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-line);
+}
+
+.work__footer p {
+    margin: 0;
+    color: var(--color-muted);
+}
+
+.work__all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--color-ink);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+}
+
+.work__all-link:hover {
+    color: var(--color-accent);
+}
+
+@media (max-width: 900px) {
+    .work__heading {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .work__intro {
+        margin: 0;
+    }
+
+    .work__grid {
+        grid-template-columns: 1fr 0.72fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .work__heading {
+        margin-bottom: 3rem;
+    }
+
+    .work__title {
+        font-size: clamp(3rem, 16vw, 4.8rem);
+    }
+
+    .work__grid {
+        display: block;
+    }
+
+    .work-card--featured {
+        margin-bottom: 3rem;
+    }
+
+    .work-card--secondary + .work-card--secondary {
+        margin-top: 3rem;
+    }
+
+    .work-card__meta {
+        display: block;
+    }
+
+    .work-card__tags {
+        margin-top: 0.8rem;
+        text-align: left;
+    }
+
+    .work__footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
