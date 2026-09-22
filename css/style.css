@@ -1513,6 +1513,21 @@ textarea {
     .about__title,
     .contact__title {
         font-size: clamp(2.8rem, 14vw, 4.6rem);
+        max-width: 14ch;
+    }
+
+    .hero__title {
+        max-width: 11.5ch;
+        font-size: clamp(3.25rem, 16vw, 5rem);
+    }
+
+    .work__title {
+        max-width: 12ch;
+        font-size: clamp(2.9rem, 15vw, 4.6rem);
+    }
+
+    .services__title {
+        font-size: clamp(2.9rem, 14.5vw, 4.6rem);
     }
 
     .about__facts {
@@ -1536,10 +1551,6 @@ textarea {
 
     .about__facts span {
         margin-bottom: 1rem;
-    }
-
-    .contact__title {
-        max-width: 10ch;
     }
 
     .footer__links {
