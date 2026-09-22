@@ -52,11 +52,13 @@ Tasks are completed in order. Do not jump ahead or mark future tasks complete be
   - Desktop, tablet and mobile refinement.
   - Check overflow, spacing, typography and touch targets.
 
-- [ ] **Task 10 — Accessibility, performance & QA**
+- [x] **Task 10 — Accessibility, performance & QA**
   - Keyboard/focus audit.
   - Reduced-motion support.
   - Image/metadata/semantic QA.
   - Final cross-viewport verification.
+  - Added explicit :focus-visible treatment, stronger contrast mode support, reduced-motion coverage, semantic form status feedback, and async/lazy image loading.
+  - Structural QA confirms balanced main/sections, no legacy template sections, and no unused Tailwind/Lucide CDN dependencies.
 
 - [ ] **Task 11 — Railway deployment**
   - Prepare deployment configuration only after the site passes final QA.
