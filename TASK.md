@@ -36,7 +36,7 @@ Tasks are completed in order. Do not jump ahead or mark future tasks complete be
   - Use editorial hierarchy rather than repeated generic cards.
   - Add work CTA.
 
-- [ ] **Task 6 — Services & process**
+- [x] **Task 6 — Services & process**
   - Convert services into intentional editorial rows/listing.
   - Build process section with concise hierarchy.
 
