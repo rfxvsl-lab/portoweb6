@@ -231,30 +231,43 @@
 html {
     scroll-behavior: smooth;
     background: var(--color-paper);
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 body {
     margin: 0;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     color: var(--color-ink);
     background: var(--color-paper);
     font-family: var(--font-body);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: clip;
+}
+
+img,
+svg,
+video,
+canvas {
+    display: block;
+    max-width: 100%;
 }
 
 img {
-    display: block;
-    max-width: 100%;
+    height: auto;
 }
 
 ::selection {
     color: var(--color-paper);
     background: var(--color-accent);
-}
-
-:focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 4px;
 }
 
 /* Layout primitives */
