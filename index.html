@@ -6,47 +6,59 @@
     <title>Brooklyn Gilbert - Desainer Produk</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     
-ead>
+</head>
 <body class="text-ink">
  
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 py-4">
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold text-xl">B</div>
-                <span class="font-bold text-xl tracking-tight">Brooklyn</span>
-            </div>
-            
-            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-600">
-                <a href="#home" class="text-purple-600 font-bold">Beranda</a>
-                <a href="#about" class="hover:text-purple-600 transition-colors">Tentang</a>
-                <a href="#process" class="hover:text-purple-600 transition-colors">Proses</a>
-                <a href="#portfolio" class="hover:text-purple-600 transition-colors">Portofolio</a>
-                <a href="#blog" class="hover:text-purple-600 transition-colors">Blog</a>
-                <a href="#services" class="hover:text-purple-600 transition-colors">Layanan</a>
-                <button class="px-6 py-2.5 bg-gradient-primary text-white rounded-full font-bold shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 transition-all transform hover:-translate-y-0.5">
-                    Hubungi Kami
-                </button>
-            </div>
-             <button class="md:hidden text-gray-600" data-mobile-menu-btn><i data-lucide="menu"></i></button>
+    <!-- Site Header -->
+    <header class="site-header" data-site-header>
+        <div class="site-container site-header__inner">
+            <a class="site-brand" href="#home" aria-label="Kembali ke beranda">
+                <span class="site-brand__mark" aria-hidden="true">R</span>
+                <span class="site-brand__name">RFX / STUDIO</span>
+            </a>
+
+            <nav class="site-nav" aria-label="Navigasi utama">
+                <div class="site-nav__links" data-desktop-nav>
+                    <a href="#home" data-nav-link>Home</a>
+                    <a href="#about" data-nav-link>About</a>
+                    <a href="#process" data-nav-link>Process</a>
+                    <a href="#portfolio" data-nav-link>Work</a>
+                    <a href="#services" data-nav-link>Services</a>
+                </div>
+                <a href="#services" class="site-nav__cta" data-nav-cta>Start a project <span aria-hidden="true">↗</span></a>
+            </nav>
+
+            <button
+                class="site-menu-toggle"
+                type="button"
+                data-mobile-menu-btn
+                aria-controls="mobile-menu"
+                aria-expanded="false"
+                aria-label="Buka menu navigasi"
+            >
+                <span class="site-menu-toggle__label">Menu</span>
+                <span class="site-menu-toggle__icon" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div data-mobile-menu class="hidden md:hidden absolute top-16 left-0 right-0 bg-white shadow-lg overflow-hidden z-40">
-            <div class="flex flex-col space-y-0">
-                <a href="#home" class="px-6 py-4 text-left hover:bg-gray-50 transition-colors border-b border-gray-100 font-medium text-sm">Beranda</a>
-                <a href="#about" class="px-6 py-4 text-left hover:bg-gray-50 transition-colors border-b border-gray-100 font-medium text-sm">Tentang</a>
-                <a href="#process" class="px-6 py-4 text-left hover:bg-gray-50 transition-colors border-b border-gray-100 font-medium text-sm">Proses</a>
-                <a href="#portfolio" class="px-6 py-4 text-left hover:bg-gray-50 transition-colors border-b border-gray-100 font-medium text-sm">Portofolio</a>
-                <a href="#blog" class="px-6 py-4 text-left hover:bg-gray-50 transition-colors border-b border-gray-100 font-medium text-sm">Blog</a>
-                <a href="#services" class="px-6 py-4 text-left hover:bg-gray-50 transition-colors font-medium text-sm">Layanan</a>
-            </div>
+
+        <div id="mobile-menu" class="site-mobile-menu" data-mobile-menu hidden>
+            <nav class="site-mobile-menu__inner site-container" aria-label="Navigasi mobile">
+                <a href="#home" data-mobile-link>Home <span aria-hidden="true">01</span></a>
+                <a href="#about" data-mobile-link>About <span aria-hidden="true">02</span></a>
+                <a href="#process" data-mobile-link>Process <span aria-hidden="true">03</span></a>
+                <a href="#portfolio" data-mobile-link>Work <span aria-hidden="true">04</span></a>
+                <a href="#services" data-mobile-link>Services <span aria-hidden="true">05</span></a>
+                <a href="#services" class="site-mobile-menu__cta" data-mobile-link>Start a project <span aria-hidden="true">↗</span></a>
+            </nav>
         </div>
-    </nav>
- 
+    </header>
+
     <!-- Hero Section -->
     <section id="home" class="pt-32 pb-20 px-6 max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2 gap-12 items-center">
