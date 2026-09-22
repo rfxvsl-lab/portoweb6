@@ -44,11 +44,11 @@ Tasks are completed in order. Do not jump ahead or mark future tasks complete be
   - Replace fabricated personal information, metrics and client claims.
   - Use only provided/verified company facts.
 
-- [ ] **Task 8 — Contact conversion**
+- [x] **Task 8 — Contact conversion**
   - Build closing CTA.
   - Connect contact routes/forms to real destinations or mark integrations clearly as pending.
 
-- [ ] **Task 9 — Responsive polish**
+- [x] **Task 9 — Responsive polish**
   - Desktop, tablet and mobile refinement.
   - Check overflow, spacing, typography and touch targets.
 
