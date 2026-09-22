@@ -6,40 +6,51 @@
 // 1. MOBILE MENU FUNCTIONALITY
 // ===================================
 function initMobileMenu() {
-    const mobileMenuBtn = document.querySelector('[data-mobile-menu-btn]');
-    const mobileMenu = document.querySelector('[data-mobile-menu]');
-    const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll('a, button') : [];
+    const button = document.querySelector('[data-mobile-menu-btn]');
+    const menu = document.querySelector('[data-mobile-menu]');
+    const links = menu ? menu.querySelectorAll('[data-mobile-link]') : [];
 
-    if (!mobileMenuBtn || !mobileMenu) return;
+    if (!button || !menu) return;
 
-    // Toggle menu on button click
-    mobileMenuBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        mobileMenu.classList.toggle('hidden');
-        mobileMenu.style.display = mobileMenu.classList.contains('hidden') ? 'none' : 'block';
+    const close = () => {
+        menu.hidden = true;
+        button.setAttribute('aria-expanded', 'false');
+        button.setAttribute('aria-label', 'Buka menu navigasi');
+    };
+
+    const open = () => {
+        menu.hidden = false;
+        button.setAttribute('aria-expanded', 'true');
+        button.setAttribute('aria-label', 'Tutup menu navigasi');
+    };
+
+    button.addEventListener('click', (event) => {
+        event.stopPropagation();
+        menu.hidden ? open() : close();
     });
 
-    // Close menu when link is clicked
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.style.display = 'none';
-        });
-    });
+    links.forEach(link => link.addEventListener('click', close));
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.style.display = 'none';
+    document.addEventListener('click', (event) => {
+        if (!menu.hidden && !menu.contains(event.target) && !button.contains(event.target)) {
+            close();
         }
     });
 
-    // Close menu when scrolling
-    window.addEventListener('scroll', () => {
-        mobileMenu.classList.add('hidden');
-        mobileMenu.style.display = 'none';
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !menu.hidden) {
+            close();
+            button.focus();
+        }
     });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 860) close();
+    });
+
+    window.addEventListener('scroll', () => {
+        if (!menu.hidden) close();
+    }, { passive: true });
 }
 
 // ===================================
@@ -75,41 +86,32 @@ function initSmoothScroll() {
 // 3. ACTIVE NAVIGATION LINK
 // ===================================
 function initActiveNavLink() {
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-    const sections = document.querySelectorAll('[id]');
+    const links = document.querySelectorAll('[data-nav-link]');
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    const header = document.querySelector('[data-site-header]');
 
-    const makeLinksInactive = () => {
-        navLinks.forEach(link => {
-            link.classList.remove('text-purple-600', 'font-bold');
-            link.classList.add('text-gray-600');
+    if (!links.length || !sections.length) return;
+
+    const setActive = (id) => {
+        links.forEach(link => {
+            const active = link.getAttribute('href') === '#' + id;
+            link.classList.toggle('is-active', active);
+            if (active) link.setAttribute('aria-current', 'page');
+            else link.removeAttribute('aria-current');
         });
     };
 
-    const highlightLink = () => {
-        let current = '';
-        
+    const update = () => {
+        const offset = (header ? header.offsetHeight : 84) + 48;
+        let current = sections[0].id;
         sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (pageYOffset >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
+            if (window.scrollY >= section.offsetTop - offset) current = section.id;
         });
-
-        makeLinksInactive();
-        
-        if (current) {
-            const activeLink = document.querySelector(`a[href="#${current}"]`);
-            if (activeLink) {
-                activeLink.classList.remove('text-gray-600');
-                activeLink.classList.add('text-purple-600', 'font-bold');
-            }
-        }
+        setActive(current);
     };
 
-    window.addEventListener('scroll', highlightLink);
-    highlightLink();
+    window.addEventListener('scroll', update, { passive: true });
+    update();
 }
 
 // ===================================
