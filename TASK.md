@@ -31,7 +31,7 @@ Tasks are completed in order. Do not jump ahead or mark future tasks complete be
   - Implement primary CTA pair.
   - Establish the main visual composition.
 
-- [ ] **Task 5 — Selected work**
+- [x] **Task 5 — Selected work**
   - Rebuild portfolio presentation around featured work.
   - Use editorial hierarchy rather than repeated generic cards.
   - Add work CTA.
