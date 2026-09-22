@@ -409,54 +409,57 @@
         </div>
     </section>
 
-    <!-- Footer Contact -->
-    <footer class="bg-[#1A1E2E] text-white pt-20 pb-10">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 mb-16">
-            <div class="bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-sm">
-                <div class="flex items-center gap-4 mb-6">
-                     <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg">
-                          <div class="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold">B</div>
-                     </div>
-                     <div>
-                          <p class="text-gray-400 text-xs font-bold uppercase">Kirim email</p>
-                          <h4 class="text-xl font-bold">brooklyn@design.com</h4>
-                     </div>
+    <!-- Contact -->
+    <section id="contact" class="contact section">
+        <div class="site-container">
+            <div class="contact__grid">
+                <div>
+                    <p class="eyebrow">Start a project / 09</p>
+                    <h2 class="contact__title">Have something worth making?</h2>
+                    <p class="contact__intro">Tell us what you are building, what needs to change, or simply where you want to go next. A useful first message is enough.</p>
                 </div>
-                <div class="flex items-center gap-4">
-                     <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-lg text-purple-600">
-                          <i data-lucide="phone" class="w-6 h-6"></i>
-                     </div>
-                     <div>
-                          <p class="text-gray-400 text-xs font-bold uppercase">Punya pertanyaan?</p>
-                          <h4 class="text-xl font-bold">+0123 456 789</h4>
-                     </div>
-                </div>
+
+                <form class="contact__form" id="project-form">
+                    <div class="contact__field">
+                        <label for="name">Name</label>
+                        <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+                    </div>
+                    <div class="contact__field">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="contact__field">
+                        <label for="brief">Project brief</label>
+                        <textarea id="brief" name="brief" rows="5" placeholder="What are you working on?" required></textarea>
+                    </div>
+                    <button type="submit" class="contact__submit">Prepare inquiry <span aria-hidden="true">↗</span></button>
+                    <p class="contact__note">The form prepares your inquiry locally. Connect your preferred form endpoint before launch.</p>
+                    <p class="contact__status" id="contact-status" role="status" aria-live="polite"></p>
+                </form>
             </div>
- 
-            <form class="space-y-4">
-                <h3 class="text-2xl font-bold mb-6">Mari Terhubung di sana</h3>
-                <input type="text" placeholder="Nama Anda" class="w-full p-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-purple-500 transition-colors">
-                <input type="email" placeholder="Email Anda" class="w-full p-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-purple-500 transition-colors">
-                <textarea rows="4" placeholder="Pesan" class="w-full p-4 bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:border-purple-500 transition-colors"></textarea>
-                <button class="w-full py-4 bg-gradient-primary rounded-xl font-bold hover:shadow-lg hover:shadow-purple-500/30 transition-all">Kirim Pesan</button>
-            </form>
         </div>
- 
-        <div class="max-w-7xl mx-auto px-6 border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-            <div class="flex items-center gap-2 mb-4 md:mb-0">
-                <div class="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center text-white font-bold text-sm">B</div>
-                <span class="font-bold text-white">Brooklyn</span>
+    </section>
+
+    <footer class="footer">
+        <div class="site-container">
+            <div class="footer__top">
+                <a class="footer__brand" href="#home" aria-label="RFX Studio home">
+                    <span class="brand-mark">R</span>
+                    <span>RFX / STUDIO</span>
+                </a>
+                <p class="footer__line">Independent creative studio / digital production</p>
             </div>
-            <p>© 2024 Brooklyn Gilbert. Hak Cipta Dilindungi.</p>
-            <div class="flex gap-6 mt-4 md:mt-0">
-                <a href="#" class="hover:text-white"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-                <a href="#" class="hover:text-white"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                <a href="#" class="hover:text-white"><i data-lucide="instagram" class="w-5 h-5"></i></a>
-                <a href="#" class="hover:text-white"><i data-lucide="dribbble" class="w-5 h-5"></i></a>
+            <div class="footer__bottom">
+                <p>© 2026 RFX Studio. All rights reserved.</p>
+                <div class="footer__links">
+                    <a href="#about">About</a>
+                    <a href="#portfolio">Work</a>
+                    <a href="#services">Services</a>
+                    <a href="#contact">Contact</a>
+                </div>
             </div>
         </div>
     </footer>
- 
     <script>
         lucide.createIcons();
     </script>
