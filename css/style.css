@@ -273,6 +273,7 @@ img {
 /* Layout primitives */
 .site-container {
     width: min(calc(100% - (var(--gutter) * 2)), var(--container));
+    max-width: 100%;
     margin-inline: auto;
 }
 
@@ -1517,13 +1518,16 @@ textarea {
     }
 
     .hero__title {
-        max-width: 11.5ch;
-        font-size: clamp(3.25rem, 16vw, 5rem);
+        max-width: none;
+        font-size: clamp(2.8rem, 14.5vw, 4.6rem);
+        letter-spacing: -0.07em;
+        overflow-wrap: normal;
+        word-break: normal;
     }
 
     .work__title {
-        max-width: 12ch;
-        font-size: clamp(2.9rem, 15vw, 4.6rem);
+        max-width: none;
+        font-size: clamp(2.8rem, 14.5vw, 4.6rem);
     }
 
     .services__title {
